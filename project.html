@@ -41,12 +41,17 @@
             border-radius: 5px;
         }
 
-        input[type="radio"] {
-            margin-right: 5px;
+        /* Radio alignment */
+        .gender {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
         }
 
-        .gender {
-            margin-bottom: 15px;
+        .gender label {
+            margin: 0;
+            font-weight: normal;
         }
 
         input[type="submit"] {
@@ -64,10 +69,22 @@
             background-color: #0056b3;
         }
     </style>
+
+    <!-- ✅ JavaScript Added -->
+    <script>
+        function showSuccessMessage(event) {
+            event.preventDefault(); // stop page refresh
+
+            alert("Enrollment Successful!");
+
+            document.getElementById("enrollForm").reset();
+        }
+    </script>
 </head>
 <body>
 
-    <form>
+    <!-- form id added -->
+    <form id="enrollForm" onsubmit="showSuccessMessage(event)">
         <h2>Course Enrollment</h2>
 
         <label for="name">Full Name</label>
@@ -83,7 +100,7 @@
             <option value="data-science">Data Science</option>
             <option value="graphic-design">Graphic Design</option>
             <option value="digital-marketing">Digital Marketing</option>
-            <option value="digital-marketing">javascript programming</option>
+            <option value="javascript">JavaScript Programming</option>
         </select>
 
         <label>Gender</label>
